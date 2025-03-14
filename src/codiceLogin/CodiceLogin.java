@@ -42,6 +42,16 @@ public class CodiceLogin {
 
 	private static void closeResources(Connection conn, Statement stmt, ResultSet rs) {
 		// Chiusura di connessioni e statement
+		try {
+			if (rs != null)
+				rs.close();
+			if (stmt != null)
+				stmt.close();
+			if (conn != null)
+				conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void main(String[] args) {
